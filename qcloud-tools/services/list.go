@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"qcloud-tools/certificate"
+	"qcloud-tools/core"
+	"qcloud-tools/core/db"
 )
 
 type SyncList struct {
@@ -13,7 +16,7 @@ type SyncList struct {
 func GetList(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
-	rootPath := tools.GetRootPath()
+	rootPath := core.GetRootPath()
 	templatePath := fmt.Sprintf("%s/web/list.html", rootPath)
 	tpl, err := template.ParseFiles(templatePath)
 	if nil != err {

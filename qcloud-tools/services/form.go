@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"net/http"
 	"qcloud-tools/certificate"
+	"qcloud-tools/core"
 	"strconv"
 )
 
@@ -100,7 +101,7 @@ func AddDomain(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	writer.Header().Set("Content-Type", "text/html")
-	rootPath := tools.GetRootPath()
+	rootPath := core.GetRootPath()
 	templatePath := fmt.Sprintf("%s/web/add-domain.html", rootPath)
 	tpl, _ := template.ParseFiles(templatePath)
 
@@ -135,7 +136,7 @@ func AddSync(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	writer.Header().Set("Content-Type", "text/html")
-	rootPath := tools.GetRootPath()
+	rootPath := core.GetRootPath()
 	templatePath := fmt.Sprintf("%s/web/add.html", rootPath)
 	tpl, _ := template.ParseFiles(templatePath)
 

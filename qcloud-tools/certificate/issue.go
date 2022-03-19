@@ -201,8 +201,6 @@ func (issue *IssueSync) IssueCertByHistory() (bool, uint) {
 	}
 
 	switch issue.CdnType {
-	case "ecdn":
-		syncInstance = EcdnSync{sync}
 	case "lb":
 		syncInstance = LBSync{
 			Sync:   sync,
