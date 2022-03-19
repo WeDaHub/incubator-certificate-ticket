@@ -1,9 +1,9 @@
 {
   "version": "2.0",
   "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
-  "envId": "oms-ty-9gmvkgwnfd685430",
+  "envId": "{{env.ENV_ID}}",
   "framework": {
-    "name": "go-starter",
+    "name": "syn-certificate-cdn",
     "plugins": {
       "function": {
         "use": "@cloudbase/framework-plugin-function",
@@ -11,10 +11,13 @@
           "functionRootPath": "functions",
           "functions": [
             {
-              "name": "go-stater",
+              "name": "syn-certificate-cdn",
               "runtime": "Go1",
               "handler": "main",
-              "functionDistPath": "go-starter/main"
+              "functionDistPath": "go-starter/main",
+              "timeout": 30,
+              "envVariables": {},
+              "memorySize": 128
             }
           ]
         }

@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "syn-certificate-lb",
+    "plugins": {
+      "function": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "functions",
+          "functions": [
+            {
+              "name": "syn-certificate-lb",
+              "runtime": "Go1",
+              "handler": "main",
+              "functionDistPath": "go-starter/main",
+              "timeout": 30,
+              "envVariables": {},
+              "memorySize": 128
+            }
+          ]
+        }
+      }
+    }
+  },
+  "functionRoot": "./functions",
+  "functions": [],
+  "region": "ap-guangzhou"
+}

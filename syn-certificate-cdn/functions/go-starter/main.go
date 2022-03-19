@@ -3,6 +3,7 @@ package main
 import (
     "context"
     "fmt"
+    "github.com/actors315/incubator-certificate-ticket/qcloud-tools/certificate"
     "github.com/tencentyun/scf-go-lib/cloudfunction"
 )
 
@@ -17,16 +18,24 @@ type DefineEvent struct {
 
 func updateCredential(ctx context.Context, event DefineEvent) (string, error) {
 
-    sync := Sync{
-        SecretId:       issue.SecretId,
-        SecretKey:      issue.SecretKey,
-        Domain:         issue.CdnDomain,
-        PrivateKeyData: privateKeyData,
-        PublicKeyData:  publicKeyData,
-        Region:         issue.Region,
+    client := certificate.CdnSync{
+        Sync: certificate.Sync{
+            SecretId:       event.SecretId,
+            SecretKey:      event.SecretKey,
+            Domain:         event.Domain,
+            PrivateKeyData: event.PrivateKey,
+            PublicKeyData:  event.PublicKey,
+            Region:         event.Region,
+        },
     }
 
-    return fmt.Sprintf("Hello %s!", event.Key1), nil
+    result := client.UpdateCredential()
+    if !result {
+        errMsg := fmt.Sprintf("update certificate failed, %s \n" , event.Domain)
+        return errMsg, fmt.Errorf(errMsg)
+    }
+
+    return fmt.Sprintf("update certificate success, %s \n", event.Domain), nil
 }
 
 func main() {

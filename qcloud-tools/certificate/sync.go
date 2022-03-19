@@ -82,43 +82,6 @@ func (sync CdnSync) UpdateCredential() bool {
 	return true
 }
 
-type EcdnSync struct {
-	Sync
-}
-
-func (sync EcdnSync) UpdateCredential() bool {
-	credential, cpf := sync.GetCredential()
-	cpf.HttpProfile.Endpoint = "ecdn.tencentcloudapi.com"
-
-	client, _ := ecdn.NewClient(credential, sync.Region, cpf)
-	request := ecdn.NewUpdateDomainConfigRequest()
-
-	params := sync.GetCertRequestParam()
-
-	err := request.FromJsonString(params)
-	if err != nil {
-		panic(err)
-	}
-
-	request.ForceRedirect = &ecdn.ForceRedirect{
-		Switch:             common.StringPtr("on"),
-		RedirectType:       common.StringPtr("https"),
-		RedirectStatusCode: common.Int64Ptr(301),
-	}
-
-	response, err := client.UpdateDomainConfig(request)
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Println("An API error has returned: ", err)
-	}
-	if err != nil {
-		fmt.Println("An API error has returned: ", err)
-		return false
-	}
-	fmt.Println(response.ToJsonString())
-
-	return true
-}
-
 type LBSync struct {
 	Sync
 	LoadBalancerId string

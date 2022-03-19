@@ -1,0 +1,12 @@
+github.com/actors315/incubator-certificate-ticket v0.0.0-20220319081250-872c5b4fe234 h1:qDWXmSAVRMK6o6zMGrb4IYmj7hs6kt1BUdteFAGcJQ4=
+github.com/actors315/incubator-certificate-ticket v0.0.0-20220319081250-872c5b4fe234/go.mod h1:COMP4rH6gg7j8UpDEU+ik+Cqc9GcrYGNlK+fq5Q/t8k=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cdn v1.0.368 h1:RakL0UvC4gkmdLF7Yp0eBnqB9tzFObQWZj4lF6UxMP4=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cdn v1.0.368/go.mod h1:bdv9Lzz5TCBlh9Gh49sqO5/ac+cm2r+5+0xOGPhrvyI=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/clb v1.0.368 h1:jpOe7hNSvIF+pdzZ6jixiqLgBky8FG3m0uDZdmpSCso=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/clb v1.0.368/go.mod h1:MsIrlcIAGNLUU9W+LvVbW5K5Bq434UZ8akS4yHmF/bg=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.368 h1:FS5rXPeSpDf+b+w9Ldjre6gLrtoaT36drvvWQ/3Seds=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.368/go.mod h1:7sCQWVkxcsR38nffDW057DRGk8mUjK1Ing/EFOK8s8Y=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/ecdn v1.0.368 h1:AEZhHQi003iE3TIJ5eQooR7djzDa/3ZBO+Ds1Ea0z8w=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/ecdn v1.0.368/go.mod h1:jrUraECyHN/NvLFTF2z6IKo+Q4b+7ebGJCSgrsbV9LM=
+github.com/tencentyun/scf-go-lib v0.0.0-20200624065115-ba679e2ec9c9 h1:JdeXp/XPi7lBmpQNSUxElMAvwppMlFSiamTtXYRFuUc=
+github.com/tencentyun/scf-go-lib v0.0.0-20200624065115-ba679e2ec9c9/go.mod h1:K3DbqPpP2WE/9MWokWWzgFZcbgtMb9Wd5CYk9AAbEN8=
