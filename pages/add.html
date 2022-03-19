@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填加配置</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <div class="content-wrapper">
+
+            <section class="content">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">添加需求</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form name="AddSync" class="j-validate" action="/sync/add" method="post">
+
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SecretId</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="secret_id" maxlength="64"
+                                               placeholder="腾讯云API密钥，SecretId">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SecretKey</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="secret_key" maxlength="64"
+                                               placeholder="腾讯云API密钥，SecretKey">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">CdnType</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <select class="form-control required" name="type">
+                                            {{range .CdnTypeList}}
+                                                <option value="{{.Id}}">{{.Name}}</option>
+                                            {{end}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">加速域名</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="cdn_domain" maxlength="256"
+                                               placeholder="加速域名">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">选择证书</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <select class="form-control" name="issue_id">
+                                            <option value="0">请选择</option>
+                                            {{range .IssueInfoList}}
+                                                <option value="{{.Id}}" title="{{.ExtraDomain}}">{{.MainDomain}}</option>
+                                            {{end}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="box-footer">
+
+                            <label class="col-sm-3 control-label"></label>
+
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="reset" class="btn btn-default" value="重置"/>
+                                    <input type="submit" class="btn btn-info" value="提交"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/jquery.min.js"></script>
+<script src="/static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="/static/layer-3.1.1/dist/layer.js"></script>
+<script src="/static/jquery-validation-1.19.3/dist/jquery.validate.js"></script>
+<script src="/static/js/cert.js"></script>
+</body>
+</html>

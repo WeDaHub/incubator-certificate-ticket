@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填加配置</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <div class="content-wrapper">
+
+            <section class="content">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">添加域名</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form name="AddDomain" class="j-validate" action="/info/add" method="post">
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">DnsApi</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <select class="form-control" name="dns_api">
+                                            {{range .DnsApiList}}
+                                                <option value="{{.Id}}">{{.Name}}</option>
+                                            {{end}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">AppId</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="app_id_value" maxlength="64"
+                                               placeholder="域名DNS产商 AppId">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">AppKey</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="app_key_value" maxlength="64"
+                                               placeholder="域名DNS产商 AppKey">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">主域名</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" name="main_domain" maxlength="256"
+                                               placeholder="主域名">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">子域名合集</label>
+
+                                <div class="col-sm-8">
+                                    <div class="form-group required">
+                                        <input type="text" class="form-control" name="extra_domain" maxlength="1024"
+                                               placeholder="子域名合集,域名前面加-d,如 -d *.abc.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="box-footer">
+
+                            <label class="col-sm-3 control-label"></label>
+
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="reset" class="btn btn-default" value="重置"/>
+                                    <input type="submit" class="btn btn-info" value="提交"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/jquery.min.js"></script>
+<script src="/static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="/static/layer-3.1.1/dist/layer.js"></script>
+<script src="/static/jquery-validation-1.19.3/dist/jquery.validate.js"></script>
+<script src="/static/js/cert.js"></script>
+</body>
+</html>

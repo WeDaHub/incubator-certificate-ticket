@@ -1,0 +1,45 @@
+{
+  "envId": "{{env.ENV_ID}}",
+  "version": "2.0",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "functionRoot": "./functions",
+  "functions": [],
+  "region": "ap-guangzhou",
+  "framework": {
+    "name": "qcloud-tools",
+    "plugins": {
+      "container": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "qcloud-tools",
+          "servicePath": "/qcloud-tools",
+          "isPublic": false,
+          "cpu": 2,
+          "mem": 4,
+          "initialDelaySeconds": 60,
+          "dockerfilePath": "./Dockerfile",
+          "envVariables": {
+            "MYSQL_IP": "{{env.MYSQL_IP}}",
+            "MYSQL_PASSWORD": "{{env.MYSQL_PASSWORD}}",
+            "MYSQL_PORT": "{{env.MYSQL_PORT}}",
+            "MYSQL_DATABASE": "{{env.MYSQL_DATABASE}}"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CynosDB",
+          "name": "MYSQL",
+          "envMap": {
+            "IP": "MYSQL_IP",
+            "PORT": "MYSQL_PORT",
+            "USERNAME": "MYSQL_USER",
+            "PASSWORD": "MYSQL_PASSWORD"
+          }
+        }
+      ]
+    }
+  }
+}

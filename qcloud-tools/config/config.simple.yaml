@@ -1,0 +1,8 @@
+db:
+  host: "#MYSQL_IP#"
+  port: #MYSQL_PORT#
+  database: "#MYSQL_DATABASE#"
+  user: "#MYSQL_USERNAME#"
+  password: "#MYSQL_PASSWORD#"
+http:
+  port: 80

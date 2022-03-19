@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+sed -i -r "s/#MYSQL_IP#/${MYSQL_IP:-localhost}/g" /usr/local/qcloud-tools/config/config.yaml
+sed -i -r "s/#MYSQL_PORT#/${MYSQL_PORT:-3306}/g" /usr/local/qcloud-tools/config/config.yaml
+sed -i -r "s/#MYSQL_DATABASE#/${MYSQL_DATABASE:-qcloud-tools}/g" /usr/local/qcloud-tools/config/config.yaml
+sed -i -r "s/#MYSQL_USERNAME#/${MYSQL_USERNAME:-root}/g" /usr/local/qcloud-tools/config/config.yaml
+sed -i -r "s/#MYSQL_PASSWORD#/${MYSQL_PASSWORD}/g" /usr/local/qcloud-tools/config/config.yaml
+
+cd /usr/local/qcloud-tools/
+
+./cert-monitor

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <div class="content-wrapper">
+
+            <section class="content">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="box box-info">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">列表</h3>
+
+                                <div class="pull-right">
+                                    <a href="/sync/add" class="btn btn-primary">添加</a>
+                                </div>
+
+                            </div>
+
+                            <div class="box-body">
+                                <div class="table-responsive">
+
+                                    <table class="table no-margin param-data">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>加速域名</th>
+                                            <th>CdnType</th>
+                                            <th>证书配置</th>
+                                            <th>最后更新时间</th>
+                                            <th>最后检查时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {{range .Item}}
+                                            <tr>
+                                                <td>{{.Id}}</td>
+                                                <td>{{.CdnDomain}}</td>
+                                                <td>{{.CdnType}}</td>
+                                                <td>
+                                                    <a href="/info/add?id={{.IssueId}}">{{.IssueId}}</a>
+                                                </td>
+                                                <td>{{if .LastIssueTime}}{{.LastIssueTime.Format "2006-01-02" }}{{end}}</td>
+                                                <td>{{if .LastCheckTime}}{{.LastCheckTime.Format "2006-01-02" }}{{end}}</td>
+                                                <td></td>
+                                            </tr>
+                                        {{else}}
+                                            <tr>
+                                                <td>list empty.</td>
+                                            </tr>
+                                        {{end}}
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/jquery.min.js"></script>
+<script src="/static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="/static/js/cert.js"></script>
+</body>
+</html>
