@@ -1,0 +1,80 @@
+{
+  "version": "2.0",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "envId": "{{env.ENV_ID}}",
+  "functionRoot": "./functions",
+  "functions": [],
+  "region": "ap-guangzhou",
+  "framework": {
+    "name": "syn-certificate-lb",
+    "plugins": {
+      "container": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "qcloud-tools",
+          "servicePath": "/qcloud-tools",
+          "localPath": "./qcloud-tools/",
+          "isPublic": true,
+          "cpu": 2,
+          "mem": 4,
+          "initialDelaySeconds": 60,
+          "dockerfilePath": "./Dockerfile",
+          "envVariables": {
+            "MYSQL_IP": "{{env.MYSQL_IP}}",
+            "MYSQL_PASSWORD": "{{env.MYSQL_PASSWORD}}",
+            "MYSQL_PORT": "{{env.MYSQL_PORT}}",
+            "MYSQL_DATABASE": "{{env.MYSQL_DATABASE}}"
+          }
+        }
+      },
+      "function": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "syn-certificate-cdn/functions",
+          "functions": [
+            {
+              "name": "syn-certificate-cdn",
+              "runtime": "Go1",
+              "handler": "main",
+              "functionDistPath": "go-starter/main",
+              "timeout": 30,
+              "envVariables": {},
+              "memorySize": 128
+            }
+          ]
+        }
+      },
+      "function2": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "syn-certificate-lb/functions",
+          "functions": [
+            {
+              "name": "syn-certificate-lb",
+              "runtime": "Go1",
+              "handler": "main",
+              "functionDistPath": "go-starter/main",
+              "timeout": 30,
+              "envVariables": {},
+              "memorySize": 128
+            }
+          ]
+        }
+      }
+    }
+  },
+  "requirement": {
+    "addons": [
+      {
+        "type": "CynosDB",
+        "name": "MYSQL",
+        "envMap": {
+          "IP": "MYSQL_IP",
+          "PORT": "MYSQL_PORT",
+          "USERNAME": "MYSQL_USER",
+          "PASSWORD": "MYSQL_PASSWORD"
+        }
+      }
+    ]
+  }
+}
