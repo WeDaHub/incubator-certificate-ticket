@@ -6,7 +6,7 @@
   "functions": [],
   "region": "ap-guangzhou",
   "framework": {
-    "name": "syn-certificate-lb",
+    "name": "qcloud-tools",
     "plugins": {
       "container": {
         "use": "@cloudbase/framework-plugin-container",
@@ -61,20 +61,20 @@
           ]
         }
       }
-    }
-  },
-  "requirement": {
-    "addons": [
-      {
-        "type": "CynosDB",
-        "name": "MYSQL",
-        "envMap": {
-          "IP": "MYSQL_IP",
-          "PORT": "MYSQL_PORT",
-          "USERNAME": "MYSQL_USER",
-          "PASSWORD": "MYSQL_PASSWORD"
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CynosDB",
+          "name": "MYSQL",
+          "envMap": {
+            "IP": "MYSQL_IP",
+            "PORT": "MYSQL_PORT",
+            "USERNAME": "MYSQL_USER",
+            "PASSWORD": "MYSQL_PASSWORD"
+          }
         }
-      }
-    ]
+      ]
+    }
   }
 }
